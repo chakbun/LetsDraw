@@ -14,16 +14,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let pan = UIPanGestureRecognizer.init(target: self, action: #selector(panActionWith(gesture:)))
-        pan.maximumNumberOfTouches = 1
-        self.canvasView.addGestureRecognizer(pan)
-    }
-    
-    @objc func panActionWith(gesture: UIPanGestureRecognizer) -> Void {
-        let point = gesture.translation(in: self.view)
-        self.canvasView.points.append(point)
-        self.canvasView.setNeedsDisplay()
     }
 }
 

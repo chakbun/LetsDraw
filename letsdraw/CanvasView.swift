@@ -27,11 +27,18 @@ class CanvasView: UIView {
             context?.strokePath()
         }
     }
+}
 
-    @objc func panActionWith(gesture: UIPanGestureRecognizer) -> Void {
-//        let point = gesture.translation(in: self)
-//        self.points.append(point)
-//        self.setNeedsDisplay()
+extension CanvasView {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
     }
-    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let point = (touches.first?.location(in: self))!
+        self.points.append(point)
+        self.setNeedsDisplay()
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.points.removeAll()
+    }
 }
