@@ -10,11 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var canvasView: CanvasView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let pan = UIPanGestureRecognizer.init(target: self.canvasView, action: #selector(panActionWith(gesture:)))
+        pan.maximumNumberOfTouches = 1
+        self.canvasView.addGestureRecognizer(pan)
     }
-
-
+    
+    @objc func panActionWith(gesture: UIPanGestureRecognizer) -> Void {}
 }
 
